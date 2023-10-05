@@ -1,0 +1,117 @@
+"use client"
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import Image from 'next/image'
+
+const UpdateProfile = ({ params }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    description: '',
+    picture: '', 
+  })
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/v1/profile/${params.profileId}`)
+        const profileData = response.data.data
+        console.log('Profile Picture URL:', profileData.picture)
+        setFormData({
+          name: profileData.name,
+          email: profileData.email,
+          description: profileData.description,
+          picture: profileData.picture, 
+        })
+        // console.log(formData)
+      } catch (error) {
+        console.error('Error fetching profile data:', error)
+      }
+    }
+
+    fetchProfileData()
+  }, [params.profileId])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      // Lakukan permintaan HTTP PUT ke API dengan data formData
+      const response = await axios.patch(`http://localhost:5000/api/v1/profile/${params.profileId}`, formData)
+      console.log('Profil berhasil diperbarui', response.data.data)
+      // Setelah berhasil memperbarui, Anda dapat mengarahkan pengguna ke halaman lain
+      // menggunakan router Next.js atau mengatur pesan sukses.
+    } catch (error) {
+      console.error('Error updating profile:', error)
+    }
+  }
+
+  return (
+    <div className=''>
+      <h1 className="mt-20 text-white">Update Profile</h1>
+      <form onSubmit={handleSubmit}>
+        <div className=''>
+          <label htmlFor="name">Name:</label>
+          <input
+            className='border shadow ml-10 text-black'
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            className='border shadow ml-10 text-black'
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="description">Description:</label>
+          <textarea
+            className='border shadow ml-10 text-black'
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="picture">Picture:</label>
+          <Image
+            src={`http://localhost:5000/uploads/images/${formData.picture}`}
+            alt="Profile Picture"
+            className="rounded-full border-4 border-white mb-4"
+            width={100}
+            height={100}
+          />
+        </div>
+        <button type="submit">Update Profile</button>
+      </form>
+    </div>
+  )
+}
+
+export default UpdateProfile
+
+
+
+
+// const UpdateProfile = ({params}) => {
+//   console.log(params.profileId)
+//   return (
+//     <h1 className="mt-20 text-white">Update Profile</h1>
+//   )
+// }
+
+// export default UpdateProfile
