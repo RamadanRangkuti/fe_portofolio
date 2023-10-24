@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import axios from "axios"
-import { headers } from "../../../../../next.config"
+// import { headers } from "../../../../../next.config"
 import AuthContext from "@/context/AuthContext"
 
 const Insert = () => {
