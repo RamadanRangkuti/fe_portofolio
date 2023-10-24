@@ -6,7 +6,7 @@ import LinkedinIcon from "../../public/linkedin-icon.svg"
 
 const EmailSection = () => {
   return (
-    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4">
+    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4" id="contact">
       <div className="">
         <h5 className="text-xl font-bold text-white my-2">Let`&apos;s Connect</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
@@ -38,7 +38,7 @@ const EmailSection = () => {
               id="email"
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-              placeholder="ramadanrangkuti17@gmail.com"
+              placeholder="yourmail@mail.com"
             />
           </div>
           <div className="mb-6">

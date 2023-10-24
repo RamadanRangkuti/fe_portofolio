@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import AuthContext from '@/context/AuthContext'
 
 const UpdateProfile = ({ params }) => {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,6 +48,7 @@ const UpdateProfile = ({ params }) => {
       console.log('Profil berhasil diperbarui', response.data.data)
       // Setelah berhasil memperbarui, Anda dapat mengarahkan pengguna ke halaman lain
       // menggunakan router Next.js atau mengatur pesan sukses.
+      router.push('/admin')
     } catch (error) {
       console.error('Error updating profile:', error)
     }
@@ -96,22 +100,11 @@ const UpdateProfile = ({ params }) => {
             height={100}
           />
         </div>
-        <button type="submit">Update Profile</button>
+        <button className='bg-white text-black rounded px-2 py-4 mt-4' type="submit">Update Profile</button>
       </form>
     </div>
   )
 }
 
-export default UpdateProfile
-
-
-
-
-// const UpdateProfile = ({params}) => {
-//   console.log(params.profileId)
-//   return (
-//     <h1 className="mt-20 text-white">Update Profile</h1>
-//   )
-// }
-
+export default AuthContext(UpdateProfile)
 // export default UpdateProfile

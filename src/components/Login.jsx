@@ -1,8 +1,11 @@
 "use client"
 import React, { useState } from 'react'
-import axios from 'axios'; 
+import axios from 'axios' 
+import { useRouter } from 'next/navigation'
 
 const LoginForm = () => {
+  const router = useRouter()
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleEmailChange = (e) => {
@@ -21,11 +24,17 @@ const LoginForm = () => {
         password,
       })
       const token = response.data.token;
-      localStorage.setItem('@userLogin', JSON.stringify(response.data.user.email))
-      console.log('Login Successful. Token:', token)
+      localStorage.setItem('@token', token)
+      // console.log('Login Successful. Token:', token)
+      // setIsLoggedIn(true)
+      router.push('/admin')
     } catch (error) {
       console.error('Login Error:', error)
     }
+  }
+
+  const handleHomeClick = () => {
+    router.push('/')
   }
 
   return (
@@ -67,6 +76,14 @@ const LoginForm = () => {
               className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none"
             >
               Login
+            </button>
+            <br /><br />
+            <button
+              onClick={handleHomeClick}
+              type="btn"
+              className="w-full bg-sky-300 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none"
+            >
+              Home
             </button>
           </div>
         </form>
