@@ -27,9 +27,9 @@ const AuthContext = (children) => {
   if (!token || !isValidToken(token)) {
     console.log('Token tidak valid atau tidak ditemukan. Harus login.');
     window.location.href = '/auth';
-    return <AuthLoading />;
-    }
+    return null; // Kembalikan null atau elemen yang sesuai jika perlu
   }
+}
 
 return children;
 }
