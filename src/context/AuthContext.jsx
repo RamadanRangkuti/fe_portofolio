@@ -18,32 +18,20 @@ const AuthContext = (children) => {
   //     return children
   //   }
   // }
-  if (typeof window !== 'undefined') {
-    const token = localStorage.getItem("@token");
-    // ...
-    // Sisipkan logika yang diperlukan di sini
-    // ...
+  
 
-    if (!token || !isValidToken(token)) {
-      console.log('Token tidak valid atau tidak ditemukan. Harus login.');
-      window.location.href = '/auth';
-      return AuthLoading;
-    }
-    // Jika token valid, lanjutkan dengan tampilan children
-    return children;
-  }
-
-  // Jika kode berjalan di sisi server (server-side rendering), Anda dapat menentukan logika yang sesuai di sini.
-  return children;
-};
+ // Periksa jika kode berjalan di sisi klien
+ if (typeof window !== 'undefined') {
+  const token = localStorage.getItem("@token");
 
   if (!token || !isValidToken(token)) {
     console.log('Token tidak valid atau tidak ditemukan. Harus login.');
     window.location.href = '/auth';
-    return AuthLoading;
+    return <AuthLoading />;
+    }
   }
-  // Jika token valid, lanjutkan dengan tampilan children
-  return children;
+
+return children;
 }
 
 // Fungsi untuk memeriksa validitas token
