@@ -9,8 +9,9 @@ const HeroSection = () => {
   useEffect(()=>{
     const fetchData = async () =>{
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/profile')
-        // console.log(response.data.data)
+        // const response = await axios.get('http://localhost:5000/api/v1/profile')
+        const response = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/profile')
+        console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -20,7 +21,7 @@ const HeroSection = () => {
   },[])
   return (
     <section>
-      <div className='m-4 pt-12'>
+      <div className='m-8 pt-12'>
         <div className='flex justify-evenly my-8'>
           <div className=''>
             <h3 className='text-gray-300 text-base'>Hi, my name is</h3>
@@ -76,10 +77,7 @@ const HeroSection = () => {
           </div>
           <div className=''>
             <Image 
-            // src='/images/ramadan.jpg'
-            // src={profile.length > 0 ? `http://localhost:5000/uploads/images/${profile[0].picture}` : '/images/ramadan.jpg'}
-            // src="http://localhost:5000/uploads/images/1695438031071-ramadan4x6.jpg" 
-            src={`http://localhost:5000/uploads/images/${profile[0].picture}`}
+            src={profile.length > 0 ? `http://localhost:5000/uploads/images/${profile[0].picture}` : '/images/ramadan.jpg'}
             alt='ramadan rangkuti'
             className='rounded-full border-4 border-white mb-4'
             width={250}

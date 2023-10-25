@@ -64,7 +64,8 @@ const ProjectsSection = () => {
   const [experience, setExperience] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/v1/experience')
+    // axios.get('http://localhost:5000/api/v1/experience')
+    axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/experience')
     .then((response)=>{
       setExperience(response.data.data)
       // console.log(response.data)

@@ -12,7 +12,8 @@ const AboutSection = () => {
 
   useEffect(() => {
     // Fetch skills data from the API
-    axios.get('http://localhost:5000/api/v1/skill')
+    // axios.get('http://localhost:5000/api/v1/skill')
+    axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/skill')
       .then((response) => {
         setSkillsData(response.data.data); // Update skillsData state with API response
       })
@@ -21,7 +22,8 @@ const AboutSection = () => {
       })
 
     // Fetch education data from the API
-    axios.get('http://localhost:5000/api/v1/school')
+    // axios.get('http://localhost:5000/api/v1/school')
+    axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/school')
       .then((response) => {
         setEducationData(response.data.data) // Update educationData state with API response
       })
