@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className='flex justify-evenly my-8'>
           <div className=''>
             <h3 className='text-gray-300 text-base'>Hi, my name is</h3>
-            <h1 className='text-white font-bold text-4xl sm:text-4xl md:text-4xl lg:text-6xl mb-px font-mono'>{profile.length > 0 ? profile[0].name : 'Ramadan Rangkuti'}</h1>
+            <h1 className='text-white font-bold text-4xl sm:text-4xl md:text-4xl lg:text-6xl mb-px font-mono'>{profile.name || 'Ramadan Rangkuti'}</h1>
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
@@ -76,16 +76,16 @@ const HeroSection = () => {
             </div>
           </div>
           <div className=''>
-            {profile.length > 0 && (
+          {profile.picture && (
               <Image 
-                src={profile[0].picture}
+                src={profile.picture}
                 alt='ramadan rangkuti'
                 className='rounded-full border-4 border-white mb-4'
                 width={250}
                 height={250}
               />
             )}
-            {console.log(profile[0].picture)} 
+            {console.log(profile.picture)} 
             {/* ini udah bener ngarah ke link cloudinary */}
           </div>
         </div>
