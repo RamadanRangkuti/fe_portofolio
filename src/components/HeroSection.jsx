@@ -77,13 +77,13 @@ const HeroSection = () => {
           </div>
           <div className=''>
             <Image 
-            src = {profile.picture}
+            src = {profile[0].picture}
             alt='ramadan rangkuti'
             className='rounded-full border-4 border-white mb-4'
             width={250}
             height={250}
             />
-            {console.log(profile.length > 0 ? profile[0].picture : '/images/ramadan.jpg')}
+            {console.log(profile[0].picture)}
           </div>
         </div>
       </div>
