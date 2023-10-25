@@ -76,14 +76,23 @@ const HeroSection = () => {
             </div>
           </div>
           <div className=''>
-            <Image 
+          {profile.length > 0 && (
+              <Image 
+                src={profile[0].picture}
+                alt='ramadan rangkuti'
+                className='rounded-full border-4 border-white mb-4'
+                width={250}
+                height={250}
+              />
+            )}
+            {/* <Image 
             src = {profile[0].picture}
             alt='ramadan rangkuti'
             className='rounded-full border-4 border-white mb-4'
             width={250}
             height={250}
             />
-            {console.log(profile[0].picture)}
+            {console.log(profile[0].picture)} */}
           </div>
         </div>
       </div>
