@@ -21,7 +21,7 @@ const HeroSection = () => {
   },[])
   return (
     <section>
-      <div className='m-8 pt-12'>
+      <div className='m-8 pt-18'>
         <div className='flex justify-evenly my-8'>
           <div className=''>
             <h3 className='text-gray-300 text-base'>Hi, my name is</h3>
@@ -77,7 +77,7 @@ const HeroSection = () => {
           </div>
           <div className=''>
           <Image
-              src={profile.picture}
+              src={profile.picture || '/images/ramadan.jpg'} 
               alt="ramadan rangkuti"
               className="rounded-full border-4 border-white mb-4"
               width={250}
