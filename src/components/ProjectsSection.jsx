@@ -84,10 +84,11 @@ const ProjectsSection = () => {
       key={item.id_experience}
       title={item.project_name}
       description={item.project_description}
-      imgUrl={`http://localhost:5000/uploads/images/${item.image}`}
+      imgUrl={item.image}
       gitUrl={item.link_repo}
       deployUrl={item.link_deploy}/>
       )}
+      {/* https://res.cloudinary.com/dbyffkigp/image/upload/v1698225171/assets/b74aspltby5slvzitlgd.png */}
     </div>
     </>
   )
