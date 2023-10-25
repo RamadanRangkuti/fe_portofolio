@@ -20,14 +20,14 @@ const Update = ({params}) => {
           skill_name: skillData.skill_name,
           skill_level: skillData.skill_level,
         })
-        console.log(formData)
+        // console.log(formData)
       } catch (error) {
         console.error('Error fetching profile data:', error)
       }
     }
 
     fetchSkillData()
-  }, [params.skillId])
+  }, [params.skillId, formData])
 
   const handleChange = (e) =>{
     setFormData({

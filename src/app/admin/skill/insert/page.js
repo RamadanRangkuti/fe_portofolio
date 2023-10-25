@@ -23,7 +23,7 @@ const Insert = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/v1/skill', form)
       // 'Content-Type': 'multipart/form-data'
-      console.log('Skill added:', response.data);
+      // console.log('Skill added:', response.data);
       router.push('/admin')
     } catch (error) {
       console.error('Error adding skill:', error);

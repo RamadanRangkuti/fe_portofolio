@@ -15,7 +15,7 @@ const Admin = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/v1/profile')
-        console.log(response.data.data)
+        // console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -24,7 +24,7 @@ const Admin = () => {
     const fetchSkillData = async () => {
       try {
         const skillResponse = await axios.get('http://localhost:5000/api/v1/skill');
-        console.log(skillResponse.data.data);
+        // console.log(skillResponse.data.data);
         setSkill(skillResponse.data.data);
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -33,7 +33,7 @@ const Admin = () => {
     const fetchExperienceData = async () => {
       try {
         const experienceResponse = await axios.get('http://localhost:5000/api/v1/experience');
-        console.log(experienceResponse.data.data);
+        // console.log(experienceResponse.data.data);
         setExperience(experienceResponse.data.data);
       } catch (error) {
         console.error('Error fetching experience data:', error);

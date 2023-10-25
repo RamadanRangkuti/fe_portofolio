@@ -19,7 +19,7 @@ const UpdateProfile = ({ params }) => {
       try {
         const response = await axios.get(`http://localhost:5000/api/v1/profile/${params.profileId}`)
         const profileData = response.data.data
-        console.log('Profile Picture URL:', profileData.picture)
+        // console.log('Profile Picture URL:', profileData.picture)
         setFormData({
           name: profileData.name,
           email: profileData.email,
@@ -45,7 +45,7 @@ const UpdateProfile = ({ params }) => {
     try {
       // Lakukan permintaan HTTP PUT ke API dengan data formData
       const response = await axios.patch(`http://localhost:5000/api/v1/profile/${params.profileId}`, formData)
-      console.log('Profil berhasil diperbarui', response.data.data)
+      // console.log('Profil berhasil diperbarui', response.data.data)
       // Setelah berhasil memperbarui, Anda dapat mengarahkan pengguna ke halaman lain
       // menggunakan router Next.js atau mengatur pesan sukses.
       router.push('/admin')

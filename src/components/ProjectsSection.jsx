@@ -67,7 +67,7 @@ const ProjectsSection = () => {
     axios.get('http://localhost:5000/api/v1/experience')
     .then((response)=>{
       setExperience(response.data.data)
-      console.log(response.data)
+      // console.log(response.data)
     })
     .catch((error)=>{
       console.error('Error fetching skills data:', error)

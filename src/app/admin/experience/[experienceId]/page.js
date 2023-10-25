@@ -29,14 +29,14 @@ const Update = ({params}) => {
           link_repo:experienceData.link_repo,
           image:experienceData.image
         })
-        console.log(formData)
+        // console.log(formData)
       } catch (error) {
         console.error('Error fetching profile data:', error)
       }
     }
 
     fetchExperienceData()
-  }, [params.experienceId])
+  }, [formData, params.experienceId])
   
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -61,7 +61,7 @@ const Update = ({params}) => {
       const response = await axios.patch(`http://localhost:5000/api/v1/experience/${params.experienceId}`, formData, {headers:{
         'Content-Type': 'multipart/form-data'}
       });
-      console.log('Experience updated:', response.data)
+      // console.log('Experience updated:', response.data)
       router.push('/admin')
     } catch (error) {
       console.error('Error adding experience:', error)
