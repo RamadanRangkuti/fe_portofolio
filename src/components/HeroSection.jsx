@@ -76,14 +76,17 @@ const HeroSection = () => {
             </div>
           </div>
           <div className=''>
-            <Image 
-            src = {profile.length > 0 ? profile[0].picture : '/images/ramadan.jpg'}
-            alt='ramadan rangkuti'
-            className='rounded-full border-4 border-white mb-4'
-            width={250}
-            height={250}
-            />
-            {/* {console.log(profile.length > 0 ? profile[0].picture : '/images/ramadan.jpg')} */}
+            {profile.length > 0 && (
+              <Image 
+                src={profile[0].picture}
+                alt='ramadan rangkuti'
+                className='rounded-full border-4 border-white mb-4'
+                width={250}
+                height={250}
+              />
+            )}
+            {console.log(profile[0].picture)} 
+            {/* ini udah bener ngarah ke link cloudinary */}
           </div>
         </div>
       </div>
