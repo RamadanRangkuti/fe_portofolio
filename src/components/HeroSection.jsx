@@ -21,7 +21,7 @@ const HeroSection = () => {
   },[])
   return (
     <section>
-      <div className='m-8 pt-18'>
+      <div className='m-8 mt-12 pt-6'>
         <div className='flex justify-evenly my-8'>
           <div className=''>
             <h3 className='text-gray-300 text-base'>Hi, my name is</h3>
