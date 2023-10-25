@@ -21,7 +21,7 @@ const HeroSection = () => {
   },[])
   return (
     <section>
-      <div className='m-8 mt-12 pt-6'>
+      <div className='m-8 pt-16'>
         <div className='flex justify-evenly my-8'>
           <div className=''>
             <h3 className='text-gray-300 text-base'>Hi, my name is</h3>
@@ -83,7 +83,7 @@ const HeroSection = () => {
               width={250}
               height={250}
             />
-            {console.log(profile.picture)} 
+            {/* {console.log(profile.picture)}  */}
             {/* ini udah bener ngarah ke link cloudinary */}
           </div>
         </div>

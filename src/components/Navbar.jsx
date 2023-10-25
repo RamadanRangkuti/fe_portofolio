@@ -44,10 +44,11 @@ const Navbar = () => {
     // </nav>
 
     <nav className='fixed top-0 left-0 right-0 z-10 bg-[#0a192f] bg-opacity-100'>
-      <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
-        <Link href={"/"} className='text-2xl md:text-5xl text-white font-semibold'>🎱</Link>
+    {/* // <nav className='fixed top-0 left-0 right-0 z-10 bg-sky-300 bg-opacity-100 text-black'> */}
+      <div className='flex items-center justify-between mx-auto px-2 md:px-4 py-2'>
+        <Link href={"/"} className='text-xl md:text-5xl text-white font-semibold'>🎱</Link>
         <div className='menu md:block md:w-auto' id='navbar'>
-          <ul className='flex p-4 md:p-0 md:flex-row md:space-x-8'>
+          <ul className='flex p-4 md:p-0 md:flex-row md:space-x-4'>
             <Link href={"#about"} className='block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white'>About</Link>
             <Link href={"#projects"} className='block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white'>Projects</Link>
             <Link href={"#contact"} className='block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white'>Contact</Link>
