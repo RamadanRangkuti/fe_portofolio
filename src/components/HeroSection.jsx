@@ -83,6 +83,7 @@ const HeroSection = () => {
             width={250}
             height={250}
             />
+            {console.log(profile.length > 0 ? profile[0].picture : '/images/ramadan.jpg')}
           </div>
         </div>
       </div>
