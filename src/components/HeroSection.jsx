@@ -77,7 +77,7 @@ const HeroSection = () => {
           </div>
           <div className=''>
             <Image 
-            src={profile.length > 0 ? `http://localhost:5000/uploads/images/${profile[0].picture}` : '/images/ramadan.jpg'}
+            src={profile[0].picture}
             alt='ramadan rangkuti'
             className='rounded-full border-4 border-white mb-4'
             width={250}
