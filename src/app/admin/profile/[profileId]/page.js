@@ -17,7 +17,7 @@ const UpdateProfile = ({ params }) => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/profile/${params.profileId}`)
+        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/profile/${params.profileId}`)
         const profileData = response.data.data
         // console.log('Profile Picture URL:', profileData.picture)
         setFormData({
@@ -44,7 +44,7 @@ const UpdateProfile = ({ params }) => {
     e.preventDefault()
     try {
       // Lakukan permintaan HTTP PUT ke API dengan data formData
-      const response = await axios.patch(`http://localhost:5000/api/v1/profile/${params.profileId}`, formData)
+      const response = await axios.patch(`https://api-ramadanrangkuti.vercel.app/api/v1/profile/${params.profileId}`, formData)
       // console.log('Profil berhasil diperbarui', response.data.data)
       // Setelah berhasil memperbarui, Anda dapat mengarahkan pengguna ke halaman lain
       // menggunakan router Next.js atau mengatur pesan sukses.
@@ -93,7 +93,7 @@ const UpdateProfile = ({ params }) => {
         <div>
           <label htmlFor="picture">Picture:</label>
           <Image
-            src={`http://localhost:5000/uploads/images/${formData.picture}`}
+            src={formData.picture}
             alt="Profile Picture"
             className="rounded-full border-4 border-white mb-4"
             width={100}

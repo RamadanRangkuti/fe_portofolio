@@ -7,14 +7,14 @@ import Link from 'next/link'
 import AuthContext from '@/context/AuthContext'
 
 const Admin = () => {
-  const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState({})
   const [skill, setSkill] = useState([])
   const [experience, setExperience] = useState([])
   
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/profile')
+        const response = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/profile')
         // console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {
@@ -23,7 +23,7 @@ const Admin = () => {
     }
     const fetchSkillData = async () => {
       try {
-        const skillResponse = await axios.get('http://localhost:5000/api/v1/skill');
+        const skillResponse = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/skill');
         // console.log(skillResponse.data.data);
         setSkill(skillResponse.data.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const Admin = () => {
     }
     const fetchExperienceData = async () => {
       try {
-        const experienceResponse = await axios.get('http://localhost:5000/api/v1/experience');
+        const experienceResponse = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/experience');
         // console.log(experienceResponse.data.data);
         setExperience(experienceResponse.data.data);
       } catch (error) {
@@ -46,7 +46,7 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/skill/${id}`);
+      await axios.delete(`https://api-ramadanrangkuti.vercel.app/api/v1/skill/${id}`);
       setSkill(skill.filter((item) => item.id_skill !== id));
     } catch (error) {
       console.error('Error deleting skill:', error);
@@ -54,7 +54,7 @@ const Admin = () => {
   }
   const handleDeleteExperience = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/experience/${id}`);
+      await axios.delete(`https://api-ramadanrangkuti.vercel.app/api/v1/experience/${id}`);
       setExperience(experience.filter((item) => item.id_experience !== id));
     } catch (error) {
       console.error('Error deleting skill:', error);
@@ -66,21 +66,21 @@ const Admin = () => {
     <div className='pt-20'>
       <h1>Bagian Profil</h1>
       <hr></hr>
-      {profile.length > 0 ? (
+      {profile ? ( // Menambahkan pemeriksaan profil.id_profile
         <>
-          <h1>Nama: {profile[0].name}</h1>
-          <h1>Email: {profile[0].email}</h1>
-          <h1>Deskripsi: {profile[0].description}</h1>
+          <h1>Nama: {profile.name}</h1>
+          <h1>Email: {profile.email}</h1>
+          <h1>Deskripsi: {profile.description}</h1>
           <div className='inline'>
-            Gambar : 
-            <Image 
-              src={`http://localhost:5000/uploads/images/${profile[0].picture}`}
+            Gambar :
+            <Image
+              src={profile.picture || '/images/ramadan.jpg'}
               alt='ramadan rangkuti'
               className='rounded-full border-4 border-white mb-4'
               width={100}
               height={250}
             />
-            <Link className='bg-white text-black py-3 px-6 rounded-xl' href={`/admin/profile/${profile[0].id_profile}`}>Update</Link>
+            <Link className='bg-white text-black py-3 px-6 rounded-xl' href={`/admin/profile/${profile.id_profile}`}>Update</Link>
           </div>
         </>
       ) : (
@@ -166,7 +166,7 @@ const Admin = () => {
                   </td>
                   <td className='flex justify-center text-center px-6 py-4 whitespace-nowrap'>
                     <Image
-                      src={`http://localhost:5000/uploads/images/${item.image}`}
+                      src={item.image}
                       alt={item.project_name}
                       className='center'
                       width={50}
