@@ -69,7 +69,7 @@ const HeroSection = () => {
               </a>
             </div>
             <div className='flex text-sm'>
-              <a href='https://drive.google.com/file/d/1ThKSqlFDSZ8LdMbYSU3Jzqt-wVoYtfes/view?usp=sharing' target='_blank' rel='noopener noreferrer'><button className='px-4 py-2 lg:px-6 lg:py-3 rounded-full mr-4 bg-white hover:bg-slate-200 text-black mt-3'>Hire Me</button></a>
+              <a href="mailto:ramadanrangkuti17@gmail.com" target='_blank' rel='noopener noreferrer'><button className='px-4 py-2 lg:px-6 lg:py-3 rounded-full mr-4 bg-white hover:bg-slate-200 text-black mt-3'>Hire Me</button></a>
               <a href='https://drive.google.com/file/d/1ThKSqlFDSZ8LdMbYSU3Jzqt-wVoYtfes/view?usp=sharing' target='_blank' rel='noopener noreferrer'>
               <button className='px-4 py-2 lg:px-6 lg:py-3 rounded-full bg-transparent hover:bg-slate-800 text-white border border-white mt-3'>Download CV</button>
             </a>

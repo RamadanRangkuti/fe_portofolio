@@ -75,11 +75,11 @@ const ProjectsSection = () => {
     })
   }, []);
   return (
-    <>
+    <div id='projects'>
     <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12'>
       My Projects
     </h2>
-    <div className='grid md:grid-cols-3 gap-8 md:gap-12'>{experience.map((item) => 
+    <div className='grid px-4 xl:px-16 md:grid-cols-3 gap-8 md:gap-12'>{experience.map((item) => 
       <ProjectCard 
       key={item.id_experience}
       title={item.project_name}
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
       )}
       {/* https://res.cloudinary.com/dbyffkigp/image/upload/v1698225171/assets/b74aspltby5slvzitlgd.png */}
     </div>
-    </>
+    </div>
   )
 }
 

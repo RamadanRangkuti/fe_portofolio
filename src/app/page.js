@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a192f] mx-auto">
       <div className="mx-4">
-        <HeroSection/>
-        <AboutSection/>
+        <HeroSection id="home"/>
+        <AboutSection id="about"/>
         <ProjectsSection/>
-        <EmailSection/>
+        <EmailSection id="contact"/>
       </div>
     </main>
   )
