@@ -29,6 +29,7 @@ const LoginForm = () => {
       // setIsLoggedIn(true)
       router.push('/admin')
     } catch (error) {
+      alert("Password Salah")
       console.error('Login Error:', error)
     }
   }
