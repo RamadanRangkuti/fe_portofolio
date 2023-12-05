@@ -14,7 +14,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/profile')
+        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/profile`)
         // console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {
@@ -23,7 +23,7 @@ const Admin = () => {
     }
     const fetchSkillData = async () => {
       try {
-        const skillResponse = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/skill');
+        const skillResponse = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/skill`);
         // console.log(skillResponse.data.data);
         setSkill(skillResponse.data.data);
       } catch (error) {
