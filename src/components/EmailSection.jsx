@@ -1,14 +1,22 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import GithubIcon from "../../public/github-icon.svg"
 import LinkedinIcon from "../../public/linkedin-icon.svg"
 
 const EmailSection = () => {
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+
   const sendEmail = (e) => {
     e.preventDefault();
     
+  }
+
+  const handleEmail = () =>{
+    setEmail()
   }
   return (
     <section className="grid px-4 xl:px-16 md:grid-cols-2 my-12 md:my-12 py-24 gap-4" id="contact">
@@ -41,6 +49,7 @@ const EmailSection = () => {
             <input
               type="email"
               id="email"
+              onChange={(e)=> setEmail(e.target.value)}
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="email"
@@ -56,6 +65,7 @@ const EmailSection = () => {
             <input
               type="text"
               id="subject"
+              onChange={(e)=> setSubject(e.target.value)}
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="Subject"
@@ -71,17 +81,19 @@ const EmailSection = () => {
             <textarea
               name="message"
               id="message"
+              onChange={(e)=> setMessage(e.target.value)}
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="Message..."
             />
           </div>
-          {/* <button
+          <button
             type="submit"
+            onSubmit={() => {window.location = `mailto:${email}?subject=${subject}&body=${message}`}}
             className="bg-sky-600 hover:bg-sky-700 text-white font-medium py-2.5 px-5 rounded-lg w-full"
           >
             Send Message
-          </button> */}
-          <a href="mailto:ramadanrangkuti17@gmail.com" className='bg-sky-600 hover:bg-sky-700 text-white font-medium py-2.5 px-5 rounded-lg w-full'>Send Mail</a>
+          </button>
+          {/* <a href="mailto:ramadanrangkuti17@gmail.com" className='bg-sky-600 hover:bg-sky-700 text-white font-medium py-2.5 px-5 rounded-lg w-full'>Send Mail</a> */}
         </form>
       </div>
     </section>

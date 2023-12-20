@@ -9,6 +9,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleEmailChange = (e) => {
+    console.log(e.target.value)/
     setEmail(e.target.value)
   }
 
@@ -19,7 +20,7 @@ const LoginForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('https://api-ramadanrangkuti.vercel.app/api/v1/auth/login', {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         email,
         password,
       })

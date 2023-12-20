@@ -14,7 +14,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/profile`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/profile`)
         // console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {
@@ -23,7 +23,7 @@ const Admin = () => {
     }
     const fetchSkillData = async () => {
       try {
-        const skillResponse = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/skill`);
+        const skillResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/skill`);
         // console.log(skillResponse.data.data);
         setSkill(skillResponse.data.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const Admin = () => {
     }
     const fetchExperienceData = async () => {
       try {
-        const experienceResponse = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/experience');
+        const experienceResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/experience`);
         // console.log(experienceResponse.data.data);
         setExperience(experienceResponse.data.data);
       } catch (error) {
@@ -46,7 +46,7 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://api-ramadanrangkuti.vercel.app/api/v1/skill/${id}`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/skill/${id}`);
       setSkill(skill.filter((item) => item.id_skill !== id));
     } catch (error) {
       console.error('Error deleting skill:', error);
@@ -54,7 +54,7 @@ const Admin = () => {
   }
   const handleDeleteExperience = async (id) => {
     try {
-      await axios.delete(`https://api-ramadanrangkuti.vercel.app/api/v1/experience/${id}`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/experience/${id}`);
       setExperience(experience.filter((item) => item.id_experience !== id));
     } catch (error) {
       console.error('Error deleting skill:', error);

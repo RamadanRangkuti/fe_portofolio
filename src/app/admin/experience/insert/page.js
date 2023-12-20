@@ -34,7 +34,7 @@ const Insert = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault()
     try {
-      const response = await axios.post('https://api-ramadanrangkuti.vercel.app/api/v1/experience', form, {headers:{
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, form, {headers:{
         'Content-Type': 'multipart/form-data'}
       });
       console.log('Experience added:', response.data);

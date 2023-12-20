@@ -18,7 +18,7 @@ const Update = ({params}) => {
   useEffect(() => {
     const fetchExperienceData = async () => {
       try {
-        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/experience/${params.experienceId}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/experience/${params.experienceId}`)
         const experienceData = response.data.data
         setFormData({
           project_name:experienceData.project_name,
@@ -58,7 +58,7 @@ const Update = ({params}) => {
   const handleSubmit = async (e) =>{
     e.preventDefault()
     try {
-      const response = await axios.patch(`https://api-ramadanrangkuti.vercel.app/api/v1/experience/${params.experienceId}`, formData, {headers:{
+      const response = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/experience/${params.experienceId}`, formData, {headers:{
         'Content-Type': 'multipart/form-data'}
       });
       // console.log('Experience updated:', response.data)

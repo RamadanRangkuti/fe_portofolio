@@ -17,7 +17,7 @@ const UpdateProfile = ({ params }) => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/profile/${params.profileId}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/profile/${params.profileId}`)
         const profileData = response.data.data
         // console.log('Profile Picture URL:', profileData.picture)
         setFormData({
@@ -44,7 +44,7 @@ const UpdateProfile = ({ params }) => {
     e.preventDefault()
     try {
       // Lakukan permintaan HTTP PUT ke API dengan data formData
-      const response = await axios.patch(`https://api-ramadanrangkuti.vercel.app/api/v1/profile/${params.profileId}`, formData)
+      const response = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/profile/${params.profileId}`, formData)
       // console.log('Profil berhasil diperbarui', response.data.data)
       // Setelah berhasil memperbarui, Anda dapat mengarahkan pengguna ke halaman lain
       // menggunakan router Next.js atau mengatur pesan sukses.

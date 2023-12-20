@@ -5,13 +5,12 @@ import { TypeAnimation } from 'react-type-animation';
 import axios from 'axios';
 
 const HeroSection = () => {
+  console.log(process.env.NEXT_PUBLIC_API_URL)
   const [profile, setProfile] = useState({});
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // console.log(process.env.customKey)
-        // console.log(process.env.NEXT_PUBLIC_API_URL)
-        const response = await axios.get('https://api-ramadanrangkuti.vercel.app/api/v1/profile')
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/profile`)
         // console.log(response.data.data)
         setProfile(response.data.data)
       } catch (error) {

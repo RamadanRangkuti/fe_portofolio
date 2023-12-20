@@ -14,7 +14,7 @@ const Update = ({params}) => {
   useEffect(() => {
     const fetchSkillData = async () => {
       try {
-        const response = await axios.get(`https://api-ramadanrangkuti.vercel.app/api/v1/skill/${params.skillId}`)
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/skill/${params.skillId}`)
         const skillData = response.data.data
         setFormData({
           skill_name: skillData.skill_name,
@@ -39,7 +39,7 @@ const Update = ({params}) => {
   const handleSubmit = async (e) =>{
     e.preventDefault()
     try {
-      const response = await axios.patch(`https://api-ramadanrangkuti.vercel.app/api/v1/skill/${params.skillId}`, formData);
+      const response = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/skill/${params.skillId}`, formData);
       console.log('Skill added:', response.data);
       router.push('/admin')
     } catch (error) {
