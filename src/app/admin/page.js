@@ -24,7 +24,7 @@ const Admin = () => {
     const fetchSkillData = async () => {
       try {
         const skillResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/skill`);
-        // console.log(skillResponse.data.data);
+        console.log(skillResponse.data.data);
         setSkill(skillResponse.data.data);
       } catch (error) {
         console.error('Error fetching profile data:', error);
