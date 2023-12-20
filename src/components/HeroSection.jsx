@@ -104,7 +104,7 @@ const HeroSection = () => {
         </div>
         <div>
           <h3 className="text-gray-300 text-base hidden md:block">Hi, my name is</h3>
-          <h1 className="text-white text-center font-bold text-4xl sm:text-4xl md:text-4xl lg:text-6xl mb-px font-mono">{profile.name || 'Ramadan Rangkuti'}</h1>
+          <h1 className="text-white text-center font-semibold text-2xl sm:text-4xl md:text-4xl lg:text-6xl mb-px font-sans">{profile.name || 'Ramadan Rangkuti'}</h1>
           <div className='flex justify-center md:justify-normal'>
             <TypeAnimation
                 sequence={[
